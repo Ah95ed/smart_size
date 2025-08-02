@@ -1,8 +1,8 @@
 name: smart_sizer
-description: "A new Flutter package project."
-version: 0.0.1
-homepage:
-
+description: "A set of Flutterfor measuring screens and automatic responsiveness with all systems and screens.."
+version: 1.0.0
+# homepage:
+repository: https://github.com/Ah95ed/smart_size
 environment:
   sdk: ^3.8.1
   flutter: ">=3.32.8"
