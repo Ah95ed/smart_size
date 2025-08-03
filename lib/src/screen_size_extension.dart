@@ -62,18 +62,7 @@ extension ScreenSize on BuildContext {
   /// 🇸🇦 نسبة البكسلات إلى البكسلات المنطقية
   double get pixelRatio => MediaQuery.of(this).devicePixelRatio;
 
-  /// User Text Scale Factor (Accessibility)
-  /// 🇸🇦 حجم النص المختار من إعدادات المستخدم
-  double get textScale => MediaQuery.of(this).textScaleFactor;
 
-  /// Breakpoint: is Mobile (< 600 logical pixels)
-  bool get isMobile => screenWidth < 600;
-
-  /// Breakpoint: is Tablet (600 - 1024 logical pixels)
-  bool get isTablet => screenWidth >= 600 && screenWidth < 1024;
-
-  /// Breakpoint: is Desktop (>= 1024 logical pixels)
-  bool get isDesktop => screenWidth >= 1024;
 }
 
 
