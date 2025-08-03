@@ -42,6 +42,10 @@ void main() {
 }
 ```
 
+### or 
+```
+
+
 ### 2️⃣ Use extension methods inside your widgets:
 
 ```dart
