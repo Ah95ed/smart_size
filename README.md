@@ -10,7 +10,7 @@ A lightweight and flexible Flutter package that helps you build responsive UIs b
 
 ```yaml
 dependencies:
-  smart_sizer: ^1.0.2
+  smart_sizer: ^1.0.3
 ```
 
 Then:
