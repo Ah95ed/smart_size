@@ -58,6 +58,7 @@ extension ScreenSize on BuildContext {
   /// 🇸🇦 الهوامش الآمنة للشاشة
   EdgeInsets get safePadding => MediaQuery.of(this).padding;
 
+
   /// Device Pixel Ratio
   /// 🇸🇦 نسبة البكسلات إلى البكسلات المنطقية
   double get pixelRatio => MediaQuery.of(this).devicePixelRatio;

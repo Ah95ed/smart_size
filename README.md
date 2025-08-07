@@ -22,27 +22,37 @@ flutter pub get
 
 ## ✅ Usage
 
-### 1️⃣ Wrap your app with `SizeBuilder` in `main.dart`:
+### 1️⃣ Wrap your app with `SizeBuilder` in `MyHomePage`:
 
 ```dart
 import 'package:flutter/material.dart';
 import 'package:smart_sizer/smart_sizer.dart';
 
 void main() {
-  runApp(LayoutBuilder(
-    builder: (context, constraints) {
-      return SizeBuilder(
-        baseSize: const Size(375, 812),
-        width: constraints.maxWidth,
-        height: constraints.maxHeight,
-        child: const MyApp(),
-      );
-    },
-  ));
+  runApp(
+      return const MyApp(),
+  );
 }
 ```
 
 ### or 
+```dart
+
+class MyHomePage extends StatelessWidget {
+
+  @override
+  Widget build(BuildContext context) {
+    return   SizeBuilder(
+          baseSize: Size(360, 690),
+          height: context.screenHeight,
+          width: context.screenWidth,
+          child: MaterialApp(
+      
+            debugShowCheckedModeBanner: false,
+            home : MainScreen(),
+          ));
+  }
+}
 ```
 
 
