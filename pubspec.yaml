@@ -1,6 +1,6 @@
 name: smart_sizer
 description: "A set of Flutterfor measuring screens and automatic responsiveness with all systems and screens.."
-version: 1.0.3
+version: 1.0.4
 # homepage:
 repository: https://github.com/Ah95ed/smart_size
 environment:
