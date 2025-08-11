@@ -10,7 +10,7 @@ A lightweight and flexible Flutter package that helps you build responsive UIs b
 
 ```yaml
 dependencies:
-  smart_sizer: ^1.0.4
+  smart_sizer: ^1.0.6
 ```
 
 Then:
@@ -35,7 +35,6 @@ void main() {
 }
 ```
 
-### or 
 ```dart
 
 class MyHomePage extends StatelessWidget {
@@ -77,6 +76,284 @@ class MyHomePage extends StatelessWidget {
     );
   }
 }
+
+```
+
+### more example
+
+
+```dart
+
+class LoginScreen extends StatelessWidget {
+  const LoginScreen({super.key});
+
+  @override
+  Widget build(BuildContext context) {
+    return Scaffold(
+      body: Padding(
+        padding: EdgeInsets.all(context.getWidth(24)),
+        child: Column(
+          mainAxisAlignment: MainAxisAlignment.center,
+          children: [
+            Text(
+              'Login',
+              style: TextStyle(
+                fontSize: context.getFontSize(22),
+                fontWeight: FontWeight.bold,
+              ),
+            ),
+            SizedBox(height: context.getHeight(20)),
+            TextField(
+              decoration: InputDecoration(
+                hintText: 'Email',
+                contentPadding: EdgeInsets.symmetric(
+                  horizontal: context.getWidth(16),
+                  vertical: context.getHeight(12),
+                ),
+              ),
+            ),
+            SizedBox(height: context.getHeight(16)),
+            TextField(
+              decoration: InputDecoration(
+                hintText: 'Password',
+                contentPadding: EdgeInsets.symmetric(
+                  horizontal: context.getWidth(16),
+                  vertical: context.getHeight(12),
+                ),
+              ),
+            ),
+            SizedBox(height: context.getHeight(24)),
+            ElevatedButton(
+              onPressed: () {},
+              style: ElevatedButton.styleFrom(
+                padding: EdgeInsets.symmetric(
+                  vertical: context.getHeight(14),
+                  horizontal: context.getWidth(40),
+                ),
+              ),
+              child: Text(
+                'Submit',
+                style: TextStyle(fontSize: context.getFontSize(16)),
+              ),
+            ),
+          ],
+        ),
+      ),
+    );
+  }
+}
+
+```
+
+ ### 3️⃣ Use DeviceUtils methods inside your widgets:
+
+
+```dart
+
+
+class GridExampleScreen extends StatelessWidget {
+  const GridExampleScreen({super.key});
+
+  @override
+  Widget build(BuildContext context) {
+    return Scaffold(
+      appBar: AppBar(title: const Text("Responsive GridView")),
+      backgroundColor: AppColors.accent,
+      body: Padding(
+        padding: EdgeInsets.all(context.getWidth(12)),
+        child: GridView.builder(
+          gridDelegate: SliverGridDelegateWithFixedCrossAxisCount(
+            crossAxisCount: DeviceUtils.valueDecider(
+              context,
+              onMobile: 2,
+              onTablet: 3,
+              onDesktop: 4,
+            ),
+            crossAxisSpacing: context.getWidth(10),
+            mainAxisSpacing: context.getHeight(10),
+            childAspectRatio: 1, 
+          ),
+          itemCount: 20,
+          itemBuilder: (context, index) {
+            return Container(
+              alignment: Alignment.center,
+              decoration: BoxDecoration(
+                color: Colors.blue,
+                borderRadius: BorderRadius.circular(context.getMinSize(12)),
+              ),
+              child: Text(
+                "Item ${index + 1}",
+                style: TextStyle(
+                  fontSize: context.getFontSize(14),
+                  color: Colors.white,
+                ),
+              ),
+            );
+          },
+        ),
+      ),
+    );
+  }
+}
+```
+
+
+### 4️⃣ Use SizeBuilder in card widgets :
+
+```dart 
+
+/// 📄 Example screen: A responsive ListView of Cards
+/// This screen demonstrates how to create a **responsive list of cards**
+/// using `SizeBuilder` and `smart_sizer` utilities.
+/// 
+/// Features:
+/// ✅ Each card adapts in height, width, and font size 🪄
+/// ✅ Includes interactive tap and button actions 🎯
+/// ✅ Example of using `context.getFontSize`, `context.getWidth`, and `context.getHeight`
+/// 
+/// Perfect for showing lists, menus, or catalog items 📋
+
+class ResponsiveCardListScreen extends StatelessWidget {
+  const ResponsiveCardListScreen({super.key});
+
+  
+  @override
+  Widget build(BuildContext context) {
+
+ final items = List.generate(12, (i) => {
+      'title': 'Card title ${i + 1}',
+      'subtitle': 'This is a brief description of item ${i + 1}.',
+      'icon': Icons.widgets,
+    });
+
+    return Scaffold(
+      appBar: AppBar(
+        title: Text(
+          'Responsive Cards',
+          style: TextStyle(fontSize: context.getFontSize(18)),
+        ),
+      ),
+      body: Container(
+
+        height: context.sizeBuilder.height,
+        child: SizeBuilder( baseSize: Size(250,250),
+          height: context.getMinSize(250),
+          width: context.getMinSize(250),
+          child:  Builder(builder: (context) {
+            return SizedBox(
+
+              child: ListView.builder(
+
+                padding: EdgeInsets.only(
+                  top: context.getHeight(12),
+                  bottom: context.getHeight(12),
+                ),
+                itemCount: items.length,
+
+                itemBuilder: (context, index) {
+                  final item = items[index];
+                  return Card(
+
+                    elevation: 4,
+                    shape: RoundedRectangleBorder(
+                      borderRadius: BorderRadius.circular(context.getMinSize(14)),
+                    ),
+                    child: InkWell(
+                      onTap: () {
+                  
+                        ScaffoldMessenger.of(context).showSnackBar(
+                          SnackBar(content: Text('Tapped ${item['title']}')),
+                        );
+                      },
+                      borderRadius: BorderRadius.circular(context.getMinSize(14)),
+                      child: SizedBox(
+                        height: context.sizeBuilder.height/2 ,
+
+                        child: Padding(
+                          padding: EdgeInsets.symmetric(
+                            horizontal: context.getWidth(12),
+                            vertical: context.getHeight(12),
+                          ),
+                          child: Row(
+                            children: [
+
+                              CircleAvatar(
+                                radius: context.getMinSize(28),
+                                backgroundColor: Theme.of(context).colorScheme.primary.withOpacity(0.12),
+                                child: Icon(
+                                  item['icon'] as IconData,
+                                  size: context.getFontSize(20),
+                                  color: Theme.of(context).colorScheme.primary,
+                                ),
+                              ),
+
+                              SizedBox(width: context.getWidth(12)),
+
+
+                              Expanded(
+                                child: Column(
+                                  crossAxisAlignment: CrossAxisAlignment.start,
+                                  children: [
+                                    Text(
+                                      item['title'] as String,
+                                      style: TextStyle(
+                                        fontSize: context.getFontSize(16),
+                                        fontWeight: FontWeight.w700,
+                                      ),
+                                    ),
+                                    SizedBox(height: context.getHeight(6)),
+                                    Text(
+                                      item['subtitle'] as String,
+                                      style: TextStyle(
+                                        fontSize:  context.getFontSize(14),
+                                        color: Theme.of(context).textTheme.bodySmall?.color?.withOpacity(0.8),
+                                      ),
+                                      maxLines: 2,
+                                      overflow: TextOverflow.ellipsis,
+                                    ),
+                                  ],
+                                ),
+                              ),
+
+                              SizedBox(width: context.getWidth(12)),
+                              ElevatedButton(
+                                onPressed: () {
+                                
+                                  ScaffoldMessenger.of(context).showSnackBar(
+                                    SnackBar(content: Text('Action for ${item['title']}')),
+                                  );
+                                },
+                                style: ElevatedButton.styleFrom(
+                                  padding: EdgeInsets.symmetric(
+                                    horizontal: context.getWidth(6),
+                                    vertical: context.getHeight(6),
+                                  ),
+                                  shape: RoundedRectangleBorder(
+                                    borderRadius: BorderRadius.circular(8),
+                                  ),
+                                ),
+                                child: Text(
+                                  'Open',
+                                  style: TextStyle(fontSize: context.getFontSize(12)),
+                                ),
+                              ),
+                            ],
+                          ),
+                        ),
+                      ),
+                    ),
+                  );
+                },
+              ),
+            );
+
+          },),
+
+                ),
+      ),);
+  }
+}
+
 ```
 
 ---

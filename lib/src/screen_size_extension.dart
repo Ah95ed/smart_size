@@ -62,4 +62,6 @@ extension ScreenSize on BuildContext {
   /// Device Pixel Ratio
   /// 🇸🇦 نسبة البكسلات إلى البكسلات المنطقية
   double get pixelRatio => MediaQuery.of(this).devicePixelRatio;
+
+  
 }
