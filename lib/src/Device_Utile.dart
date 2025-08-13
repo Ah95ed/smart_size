@@ -1,7 +1,6 @@
-
-
 import 'package:flutter/material.dart';
 import 'package:smart_sizer/smart_sizer.dart';
+
 class DeviceUtils {
   static bool isMobile(BuildContext context) => context.screenWidth < 600;
 

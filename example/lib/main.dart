@@ -1,8 +1,9 @@
 import 'package:device_preview/device_preview.dart';
-import 'package:example/sizeApp/screen_size_extension.dart';
-import 'package:example/sizeApp/size_builder.dart';
+import 'package:example/GridExampleScreen.dart';
+import 'package:example/ResponsiveCardListScreen.dart';
 import 'package:flutter/foundation.dart';
 import 'package:flutter/material.dart';
+import 'package:smart_sizer/smart_sizer.dart';
 
 void main() {
   runApp(
@@ -111,7 +112,47 @@ class _MyHomePageState extends State<MyHomePage> {
               ),
               Text(
                 '$_counter',
-                style: Theme.of(context).textTheme.headlineMedium,
+                style: TextStyle(fontSize: context.getFontSize(18)),
+              ),
+              SizedBox(
+                height: context.getHeight(20), // Responsive spacing
+              ),
+              MaterialButton(
+                onPressed: () {
+                  Navigator.push(
+                    context,
+                    MaterialPageRoute(
+                      builder: (context) => const ResponsiveCardListScreen(),
+                    ),
+                  );
+                },
+                color: Colors.blue[300],
+                child: Text(
+                  'Go to ResponsiveCardListScreen',
+                  style: TextStyle(fontSize: context.getFontSize(18)),
+                ),
+              ),
+              SizedBox(
+                height: context.getHeight(20), // Responsive spacing
+              ),
+              MaterialButton(
+                shape: BeveledRectangleBorder(
+                  borderRadius: BorderRadius.circular(4),
+                  side: BorderSide(color: Colors.blue[300]!),
+                ),
+                onPressed: () {
+                  Navigator.push(
+                    context,
+                    MaterialPageRoute(
+                      builder: (context) => const GridExampleScreen(),
+                    ),
+                  );
+                },
+                color: Colors.blue[300],
+                child: Text(
+                  'Go to GridViewScreen',
+                  style: TextStyle(fontSize: context.getFontSize(18)),
+                ),
               ),
             ],
           ),

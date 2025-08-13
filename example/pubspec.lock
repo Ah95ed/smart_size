@@ -322,6 +322,14 @@ packages:
     description: flutter
     source: sdk
     version: "0.0.0"
+  smart_sizer:
+    dependency: "direct main"
+    description:
+      name: smart_sizer
+      sha256: "95472b9074e68bfb184051331ab6fdfc4a5a3b97334d2818623be043f291a00a"
+      url: "https://pub.dev"
+    source: hosted
+    version: "1.0.6"
   source_span:
     dependency: transitive
     description:
@@ -404,4 +412,4 @@ packages:
     version: "1.1.0"
 sdks:
   dart: ">=3.8.1 <4.0.0"
-  flutter: ">=3.32.0"
+  flutter: ">=3.32.8"

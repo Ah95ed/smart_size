@@ -10,7 +10,7 @@ A lightweight and flexible Flutter package that helps you build responsive UIs b
 
 ```yaml
 dependencies:
-  smart_sizer: ^1.0.6
+  smart_sizer: ^1.0.7
 ```
 
 Then:
@@ -79,7 +79,7 @@ class MyHomePage extends StatelessWidget {
 
 ```
 
-### more example
+### More example
 
 
 ```dart
@@ -163,6 +163,7 @@ class GridExampleScreen extends StatelessWidget {
         padding: EdgeInsets.all(context.getWidth(12)),
         child: GridView.builder(
           gridDelegate: SliverGridDelegateWithFixedCrossAxisCount(
+            // Use GridView to All OS and Device
             crossAxisCount: DeviceUtils.valueDecider(
               context,
               onMobile: 2,

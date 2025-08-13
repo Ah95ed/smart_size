@@ -33,9 +33,12 @@ class SizeBuilder extends InheritedWidget {
   /// Access the nearest SizeBuilder up the widget tree.
   /// 🔍 استخدام SizeBuilder في أي BuildContext
   static SizeBuilder of(BuildContext context) {
-    final sizeBuilder = context.dependOnInheritedWidgetOfExactType<SizeBuilder>();
+    final sizeBuilder = context
+        .dependOnInheritedWidgetOfExactType<SizeBuilder>();
     if (sizeBuilder == null) {
-      throw FlutterError('[smart_sizer] SizeBuilder not found in widget tree. Make sure to wrap your app with SizeBuilder.');
+      throw FlutterError(
+        '[smart_sizer] SizeBuilder not found in widget tree. Make sure to wrap your app with SizeBuilder.',
+      );
     }
     return sizeBuilder;
   }
