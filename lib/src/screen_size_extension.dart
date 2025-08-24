@@ -9,22 +9,19 @@ import 'size_builder.dart';
 /// 🇺🇸 Extension on BuildContext for responsive size and font scaling
 /// 🇸🇦 امتداد على BuildContext لتسهيل القياسات المتجاوبة وتكبير النصوص
 extension ScreenSize on BuildContext {
+  
   /// Is the screen in landscape orientation?
   /// 🇸🇦 هل الشاشة في الوضع الأفقي؟
-  bool get isLandscape =>
-      MediaQuery.of(this).orientation == Orientation.landscape;
+  // bool get isLandscape =>
+  //     MediaQuery.of(this).orientation == Orientation.landscape;
 
   /// Logical height of the screen (auto adjusted by orientation)
   /// 🇸🇦 الارتفاع المنطقي للشاشة بعد احتساب الاتجاه
-  double get screenHeight => isLandscape
-      ? MediaQuery.sizeOf(this).width
-      : MediaQuery.sizeOf(this).height;
+  double get screenHeight => MediaQuery.sizeOf(this).height;
 
   /// Logical width of the screen (auto adjusted by orientation)
   /// 🇸🇦 العرض المنطقي للشاشة بعد احتساب الاتجاه
-  double get screenWidth => isLandscape
-      ? MediaQuery.sizeOf(this).height
-      : MediaQuery.sizeOf(this).width;
+  double get screenWidth => MediaQuery.sizeOf(this).width;
 
   /// Internal SizeBuilder access
   /// 🇸🇦 الوصول إلى الكائن الذي يحتوي نسب التحجيم
