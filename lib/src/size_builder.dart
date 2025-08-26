@@ -7,7 +7,7 @@ import 'package:flutter/widgets.dart';
 /// 🇺🇸 InheritedWidget that provides the base and current screen sizes
 /// for scaling purposes.
 ///
-/// 🇸🇦 ويدجت توريث (وراثي) يوفر الحجم المرجعي وحجم الشاشة الحالي
+/// IQ ويدجت توريث (وراثي) يوفر الحجم المرجعي وحجم الشاشة الحالي
 /// لحساب نسبة التحجيم للعناصر.
 class SizeBuilder extends InheritedWidget {
   /// Reference screen size used for design (e.g. Size(375, 812))
