@@ -1,4 +1,4 @@
-## [1.0.10] - 2025-08-25
+## [1.1.\0] - 2025-08-26
 
 - Initial release of `smart_sizer`.
 - Added `SizeBuilder` widget to define base and current screen sizes.
